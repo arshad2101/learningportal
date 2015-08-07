@@ -1,0 +1,1 @@
+copy C:\learningportal\target\learningportal.war C:\apache-tomcat-7.0.59\webapps\

@@ -1,0 +1,33 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+
+<struts>
+	<package name="LearningPortal" extends="struts-default">
+	
+
+		<action name="*LearningPortal" class="com.learningportal.action.LoginAndRegistrationAction" method="{1}">
+			
+			
+			<result name="success">index.jsp</result>
+			<result name="error">index.jsp</result>
+			
+			
+		</action>
+		<action name="*LearningPortalCourse" class="com.learningportal.action.CourseAction" method="{1}">
+			
+			
+			<result name="success">index.jsp</result>
+			<result name="error">index.jsp</result>
+			
+			
+			
+		</action>
+		
+		
+     
+		
+		
+	</package>
+</struts>
