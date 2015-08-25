@@ -10,11 +10,13 @@ import org.hibernate.Transaction;
 
 import com.learningportal.beans.moodle.MoodleNewUserRequestBean;
 import com.learningportal.beans.moodle.MoodleNewUserResponseBean;
+import com.learningportal.beans.portal.ContributionBean;
 import com.learningportal.beans.portal.EnqSugFeedBackBean;
 import com.learningportal.beans.portal.LoginBean;
 import com.learningportal.beans.portal.RegistrationBean;
 import com.learningportal.dao.RegistrationDao;
 import com.learningportal.dao.RegistrationDaoImpl;
+import com.learningportal.entity.ContributionEntity;
 import com.learningportal.entity.EnqSugFeedBackEntity;
 import com.learningportal.entity.RegistrationEntity;
 import com.learningportal.restmoodleclient.MoodleRestClient;
@@ -95,6 +97,14 @@ public class UserControllerImpl implements UserController {
 		registrationDao = new RegistrationDaoImpl() ;
 		EnqSugFeedBackEntity enqSugFeedBackEntity = Converters.enqSugFeedBackBeanToEntity(enqSugFeedBackBean);
 		registrationDao.saveEnqSugFeedBack(enqSugFeedBackEntity);
+	}
+
+	
+	public void contrubution(ContributionBean contributionBean) {
+		registrationDao = new RegistrationDaoImpl();
+		ContributionEntity contributionEntity = Converters.contributionBeanToEntity(contributionBean);
+		registrationDao.saveContribution(contributionEntity);
+		
 	}
 
 

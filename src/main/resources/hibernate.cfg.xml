@@ -27,6 +27,8 @@ and let Hibernate bind the session automatically to the thread
 <mapping class="com.learningportal.entity.CourseEntity"/>
 <mapping class="com.learningportal.entity.RegistrationToCourseEntity"/>
 <mapping class="com.learningportal.entity.EnqSugFeedBackEntity"/>
+<mapping class="com.learningportal.entity.ContributionEntity"/>
+
 
 </session-factory>
 </hibernate-configuration>

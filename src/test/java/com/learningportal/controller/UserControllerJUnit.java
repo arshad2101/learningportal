@@ -1,5 +1,6 @@
 package com.learningportal.controller;
 
+import com.learningportal.beans.portal.ContributionBean;
 import com.learningportal.beans.portal.EnqSugFeedBackBean;
 import com.learningportal.beans.portal.LoginBean;
 import com.learningportal.beans.portal.RegistrationBean;
@@ -47,6 +48,20 @@ public class UserControllerJUnit extends TestCase {
 		enqSugFeedBackBean.setTypeOfQuery("General");
 		UserController userController = new UserControllerImpl();
 		userController.enqSugFeedback(enqSugFeedBackBean);
+	}
+	
+	public void testContribution(){
+		ContributionBean contributionBean =new ContributionBean();
+		contributionBean.setCategory("Java");
+		contributionBean.setContributorAddress("Ghaziabad");
+		contributionBean.setContributorContactNumber("8800673026");
+		contributionBean.setContributorEmail("arshad_1983@rediffmail.com");
+		contributionBean.setContributorName("Mohd Arshad");
+		contributionBean.setContributorType("Public");
+		contributionBean.setDetail("This is public contribution");
+		contributionBean.setTitle("IBM Bluemix");
+		UserController userController = new UserControllerImpl();
+		userController.contrubution(contributionBean);
 	}
 
 }

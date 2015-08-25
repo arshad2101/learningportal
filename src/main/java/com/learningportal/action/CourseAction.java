@@ -64,24 +64,10 @@ public class CourseAction extends ActionSupport implements
 	public String enrolUserToCourse(){
 		courseController = new CourseControllerImpl();
 		String userName  = null;
-		 if(session!=null && session.get("loginBean")!=null){
-			 loginBean=((LoginBean)getSession().get("loginBean")); 
-		 }
+		if( isUserLoggedIn()==true){
 		 
-		 courseController.enrolUserToCourse(loginBean, courseBean);
-		  response=(HttpServletResponse) ActionContext.getContext().get(ServletActionContext.HTTP_RESPONSE);
-		 
-		 HttpServletRequest request=(HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-		  url="http://localhost/my/";
-		  
-		 //url="http://localhost/login/index.php"; 
-		  
-		try {
-			response.sendRedirect(url);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		// courseController.enrolUserToCourse(loginBean, courseBean);
+		  redirectToMoodle();
 		 /*RequestDispatcher dispatcher =request.getRequestDispatcher(url);
 		 try {
 			dispatcher.forward(request, response);
@@ -106,12 +92,36 @@ public class CourseAction extends ActionSupport implements
 					}}
 						}.start();
 				*/
-			
+		}	
 		    return null;
+	}
+
+	private void redirectToMoodle() {
+		response=(HttpServletResponse) ActionContext.getContext().get(ServletActionContext.HTTP_RESPONSE);
+		 
+		 HttpServletRequest request=(HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+		  //url="http://localhost/my/";
+		  
+		 url="http://localhost/login/index.php"; 
+		  
+		try {
+			response.sendRedirect(url);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private boolean isUserLoggedIn() {
+		if(session!=null && session.get("loginBean")!=null){
+			 loginBean=((LoginBean)getSession().get("loginBean")); 
+			 return true;
+		 }
+		else return false;
 	}
 	
 	private void addToHttpSession(String objcetName, Object object) {
-		// getSession().putIfAbsent(objcetName, object);
+		getSession().put(objcetName, object);
 
 	}
 

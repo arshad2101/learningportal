@@ -3,9 +3,11 @@ package com.learningportal.util;
 import com.learningportal.beans.moodle.MoodleEnrolUserToCourseRequestBean;
 import com.learningportal.beans.moodle.MoodleNewCourseRequestBean;
 import com.learningportal.beans.moodle.MoodleNewUserRequestBean;
+import com.learningportal.beans.portal.ContributionBean;
 import com.learningportal.beans.portal.CourseBean;
 import com.learningportal.beans.portal.EnqSugFeedBackBean;
 import com.learningportal.beans.portal.RegistrationBean;
+import com.learningportal.entity.ContributionEntity;
 import com.learningportal.entity.CourseEntity;
 import com.learningportal.entity.EnqSugFeedBackEntity;
 import com.learningportal.entity.RegistrationEntity;
@@ -99,6 +101,22 @@ public class Converters {
 		enqSugFeedBackEntity.setProfession(enqSugFeedBackBean.getProfession());
 		enqSugFeedBackEntity.setQuery(enqSugFeedBackBean.getQuery());
 		return enqSugFeedBackEntity;
+	}
+	
+	public static ContributionEntity contributionBeanToEntity(ContributionBean contributionBean){
+		ContributionEntity contributionEntity = new ContributionEntity();
+		
+		contributionEntity.setCategory(contributionBean.getCategory());
+		contributionEntity.setContributorAddress(contributionBean.getContributorAddress());
+		contributionEntity.setContributorContactNumber(contributionBean.getContributorContactNumber());
+		contributionEntity.setContributorEmail(contributionBean.getContributorEmail());
+		contributionEntity.setContributorName(contributionBean.getContributorName());
+		contributionEntity.setContributorType(contributionBean.getContributorType());
+		contributionEntity.setDetail(contributionBean.getDetail());
+		contributionEntity.setTitle(contributionBean.getTitle());
+		return contributionEntity;
+		
+		
 	}
 
 }
